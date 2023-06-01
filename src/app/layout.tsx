@@ -1,7 +1,7 @@
-import Header from "../../components/Header";
 import "./globals.css";
 import { Montserrat } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Header from "@/components/Header";
 
 export const metadata = {
   title: "Create Next App",

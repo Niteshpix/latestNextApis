@@ -26,6 +26,9 @@ function Header() {
           <Link className="custom-link" href="/signup" passHref>
             Sign up
           </Link>
+          <Link className="custom-link" href="/contact" passHref>
+            Contact
+          </Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

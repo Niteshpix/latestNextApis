@@ -1,6 +1,6 @@
 "use client";
 import { notFound } from "next/navigation";
-import ProductImage from "../../../../components/ProductImage";
+import ProductImage from "../../../components/ProductImage";
 import styles from "./productPage.module.css";
 
 type Props = {
