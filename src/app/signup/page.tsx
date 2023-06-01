@@ -1,57 +1,79 @@
-"use client";
-import React, { useState } from 'react';
-import styles from '../styles/auth.module.css';
+"use client"
+import React, { useState } from "react";
+import styles from "../styles/auth.module.css";
 
-interface SignupFormProps {
-  onSignup: (formData: SignupFormData) => void;
-}
+const RegistrationPage: React.FC = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
 
-interface SignupFormData {
-  name: string;
-  email: string;
-  password: string;
-  phone: string;
-}
-
-const SignupForm: React.FC<SignupFormProps> = ({ onSignup }) => {
-  const [formData, setFormData] = useState<SignupFormData>({
-    name: '',
-    email: '',
-    password: '',
-    phone: '',
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPhone(e.target.value);
+  };
+
+  const handleRegistration = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onSignup(formData);
+    // Perform registration logic here
+    console.log("Registration:", name, email, password, phone);
   };
 
   return (
-    <form className={styles['form-container']} onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="name">Name:</label>
-        <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} />
-      </div>
-      <div>
-        <label htmlFor="email">Email:</label>
-        <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} />
-      </div>
-      <div>
-        <label htmlFor="password">Password:</label>
-        <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} />
-      </div>
-      <div>
-        <label htmlFor="phone">Phone:</label>
-        <input type="text" id="phone" name="phone" value={formData.phone} onChange={handleChange} />
-      </div>
-      <button type="submit">Signup</button>
-    </form>
+    <div>
+      <h1>Registration Page</h1>
+      <form className={styles["form-container"]} onSubmit={handleRegistration}>
+        <div>
+          <label htmlFor="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            value={name}
+            onChange={handleNameChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={handleEmailChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={handlePasswordChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="phone">Phone Number:</label>
+          <input
+            type="tel"
+            id="phone"
+            value={phone}
+            onChange={handlePhoneChange}
+          />
+        </div>
+        <button type="submit">Register</button>
+      </form>
+    </div>
   );
 };
 
-export default SignupForm;
+export default RegistrationPage;

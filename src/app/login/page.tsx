@@ -1,58 +1,51 @@
-"use client";
+"use client"
 import React, { useState } from "react";
-import styles from "../styles/auth.module.css";
+import styles from '../styles/auth.module.css';
 
-interface SigninFormProps {
-  onSignup: (formData: SignupFormData) => void;
-}
+const LoginPage: React.FC = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-interface SignupFormData {
-  email: string;
-  password: string;
-}
-
-const SignupForm: React.FC<SigninFormProps> = ({ onSignup }) => {
-  const [formData, setFormData] = useState<SignupFormData>({
-    email: "",
-    password: "",
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
+
+  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onSignup(formData);
+    // Perform login logic here
+    console.log("Login:", email, password);
   };
 
   return (
-    <form className={styles["form-container"]} onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-        />
-      </div>
-
-      <button type="submit">Signup</button>
-    </form>
+    <div>
+      <h1>Login Page</h1>
+      <form className={styles["form-container"]} onSubmit={handleLogin}>
+        <div>
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={handleEmailChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={handlePasswordChange}
+          />
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    </div>
   );
 };
 
-export default SignupForm;
+export default LoginPage;
