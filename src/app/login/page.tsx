@@ -1,51 +1,9 @@
-"use client"
-import React, { useState } from "react";
-import styles from '../styles/auth.module.css';
+import React from 'react'
 
-const LoginPage: React.FC = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+type Props = {}
 
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value);
-  };
-
-  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // Perform login logic here
-    console.log("Login:", email, password);
-  };
-
+export default function Login({}: Props) {
   return (
-    <div>
-      <h1>Login Page</h1>
-      <form className={styles["form-container"]} onSubmit={handleLogin}>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={handleEmailChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
-        </div>
-        <button type="submit">Login</button>
-      </form>
-    </div>
-  );
-};
-
-export default LoginPage;
+    <div>Login</div>
+  )
+}
