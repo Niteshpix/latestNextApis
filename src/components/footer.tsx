@@ -1,14 +1,20 @@
-import React from 'react';
-import footerStyles from '@/app/styles/footer.module.css';
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
-import Link from 'next/link';
+import React from "react";
+import footerStyles from "@/app/styles/footer.module.css";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedinIn,
+  FaYoutube,
+} from "react-icons/fa";
+import Link from "next/link";
 
 interface Metadata {
   url: string;
 }
 
 export const metadata: Metadata = {
-  url: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css',
+  url: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css",
 };
 
 const Footer: React.FC = () => {
@@ -17,58 +23,119 @@ const Footer: React.FC = () => {
       <footer className={footerStyles.footer}>
         <div className={footerStyles.content}>
           <div className={footerStyles.top}>
-            <div className={footerStyles['logo-details']}>
+            <div className={footerStyles["logo-details"]}>
               {/*<i className={footerStyles.fab fa-slack]></i>*/}
               <span className={footerStyles.logo_name}>Title</span>
             </div>
-            <div className={footerStyles['media-icons']}>
-              <Link href="#"><i > <FaFacebookF/> </i></Link>
-              <Link href="#"><i > <FaTwitter/> </i> </Link>
-              <Link href="/" target="_blank"><i > <FaInstagram/>  </i></Link>
-              <Link href="#"><i > <FaLinkedinIn /> </i></Link>
-              <Link href="#"><i > <FaYoutube />  </i></Link>
+            <div className={footerStyles["media-icons"]}>
+              <Link href="#">
+                <i>
+                  {" "}
+                  <FaFacebookF />{" "}
+                </i>
+              </Link>
+              <Link href="#">
+                <i>
+                  {" "}
+                  <FaTwitter />{" "}
+                </i>{" "}
+              </Link>
+              <Link href="/" target="_blank">
+                <i>
+                  {" "}
+                  <FaInstagram />{" "}
+                </i>
+              </Link>
+              <Link href="#">
+                <i>
+                  {" "}
+                  <FaLinkedinIn />{" "}
+                </i>
+              </Link>
+              <Link href="#">
+                <i>
+                  {" "}
+                  <FaYoutube />{" "}
+                </i>
+              </Link>
             </div>
           </div>
-          <div className={footerStyles['link-boxes']}>
+          <div className={footerStyles["link-boxes"]}>
             <ul className={footerStyles.box}>
               <li className={footerStyles.link_name}>Company</li>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Contact us</a></li>
-              <li><a href="#">About us</a></li>
-              <li><a href="#">Get started</a></li>
+              <li>
+                <Link href="#">Home</Link>
+              </li>
+              <li>
+                <Link href="#">Contact us</Link>
+              </li>
+              <li>
+                <Link href="#">About us</Link>
+              </li>
+              <li>
+                <Link href="#">Get started</Link>
+              </li>
             </ul>
             <ul className={footerStyles.box}>
               <li className={footerStyles.link_name}>Services</li>
-              <li><a href="#">App design</a></li>
-              <li><a href="#">Web design</a></li>
-              <li><a href="#">Logo design</a></li>
-              <li><a href="#">Banner design</a></li>
+              <li>
+                <Link href="#">App design</Link>
+              </li>
+              <li>
+                <Link href="/jscompiler">Web design</Link>
+              </li>
+              <li>
+                <Link href="#">Logo design</Link>
+              </li>
+              <li>
+                <Link href="#">Banner design</Link>
+              </li>
             </ul>
             <ul className={footerStyles.box}>
               <li className={footerStyles.link_name}>Account</li>
-              <li><a href="#">Profile</a></li>
-              <li><a href="#">My account</a></li>
-              <li><a href="#">Preferences</a></li>
-              <li><a href="#">Purchase</a></li>
+              <li>
+                <Link href="#">Profile</Link>
+              </li>
+              <li>
+                <Link href="#">My account</Link>
+              </li>
+              <li>
+                <Link href="#">Preferences</Link>
+              </li>
+              <li>
+                <Link href="#">Purchase</Link>
+              </li>
             </ul>
             <ul className={footerStyles.box}>
               <li className={footerStyles.link_name}>Courses</li>
-              <li><a href="#">HTML & CSS</a></li>
-              <li><a href="#">JavaScript</a></li>
-              <li><a href="#">Photography</a></li>
-              <li><a href="#">Photoshop</a></li>
+              <li>
+                <Link href="/jscompiler">HTML & CSS</Link>
+              </li>
+              <li>
+                <Link href="/jscompiler">JavaScript</Link>
+              </li>
+              <li>
+                <Link href="#">Photography</Link>
+              </li>
+              <li>
+                <Link href="#">Photoshop</Link>
+              </li>
             </ul>
-            <ul className={`${footerStyles.box} ${footerStyles['input-box']}`}>
+            <ul className={`${footerStyles.box} ${footerStyles["input-box"]}`}>
               <li className={footerStyles.link_name}>Subscribe</li>
-              <li><input type="text" placeholder="Enter your email" /></li>
-              <li><input type="button" value="Subscribe" /></li>
+              <li>
+                <input type="text" placeholder="Enter your email" />
+              </li>
+              <li>
+                <input type="button" value="Subscribe" />
+              </li>
             </ul>
           </div>
         </div>
-        <div className={footerStyles['bottom-details']}>
+        <div className={footerStyles["bottom-details"]}>
           <div className={footerStyles.bottom_text}>
             <span className={footerStyles.copyright_text}>
-              {' '}
+              {" "}
               Copyright © 2023
               <Link href="/"> Nits</Link> All rights reserved
             </span>

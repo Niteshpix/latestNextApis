@@ -3,6 +3,7 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import styles from "../styles/auth.module.css";
+import { useRouter } from "next/navigation";
 
 interface LoginValues {
   email: string;
@@ -17,14 +18,25 @@ const validationSchema = Yup.object().shape({
 });
 
 export default function Login() {
+  const router = useRouter();
   const formik = useFormik<LoginValues>({
     initialValues: {
       email: "",
       password: "",
     },
     validationSchema,
-    onSubmit: (values: any) => {
-      // Handle form submission logic here
+    onSubmit: async (values: any) => {
+      try {
+        const response = await fetch("/api/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(values),
+        });
+        console.log(response);
+        router.push("/");
+      } catch (error) {
+        console.log(error);
+      }
       console.log(values);
     },
   });

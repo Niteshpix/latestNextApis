@@ -1,35 +1,59 @@
-"use client"
-import React from 'react';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import styles from '../styles/auth.module.css';
+"use client";
+import React from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import styles from "../styles/auth.module.css";
+import { useRouter } from "next/navigation";
 
 interface SignupValues {
-  name: string;
+  username: string;
   email: string;
   phone: string;
   password: string;
 }
 
 const validationSchema = Yup.object().shape({
-  name: Yup.string().required('Name is required'),
-  email: Yup.string().email('Invalid email').required('Email is required'),
-  phone: Yup.string().required('Phone is required'),
-  password: Yup.string().min(8, 'Password should be at least 8 characters long').required('Password is required'),
+  username: Yup.string().required("Name is required"),
+  email: Yup.string().email("Invalid email").required("Email is required"),
+  phone: Yup.string().required("Phone is required"),
+  password: Yup.string()
+    .min(8, "Password should be at least 8 characters long")
+    .required("Password is required"),
 });
 
 export default function Signup() {
+  const router = useRouter()
   const formik = useFormik<SignupValues>({
     initialValues: {
-      name: '',
-      email: '',
-      phone: '',
-      password: '',
+      username: "",
+      email: "",
+      phone: "",
+      password: "",
     },
     validationSchema,
-    onSubmit: (values) => {
-      // Handle form submission logic here
-      console.log(values);
+    onSubmit: async (values) => {
+      try {
+        const response = await fetch("/api/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
+        });
+
+        if (response.ok) {
+          console.log("User registered successfully");
+          // Perform any additional actions on successful registration
+          router.push('/login')
+          
+        } else {
+          console.error("Error registering user:", response.statusText);
+          // Handle the error condition
+        }
+      } catch (error) {
+        console.error("Error registering user:", error);
+        // Handle the error condition
+      }
     },
   });
 
@@ -41,13 +65,13 @@ export default function Signup() {
           <span>Name:</span>
           <input
             type="text"
-            name="name"
-            value={formik.values.name}
+            name="username"
+            value={formik.values.username}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
-          {formik.touched.name && formik.errors.name && (
-            <span className={styles.error}>{formik.errors.name}</span>
+          {formik.touched.username && formik.errors.username && (
+            <span className={styles.error}>{formik.errors.username}</span>
           )}
         </label>
         <label>
