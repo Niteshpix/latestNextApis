@@ -1,32 +1,91 @@
-/* signup.module.css */
+.container {
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 40px;
+}
 
-.form-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f0f0f0;
-    margin-top: 40px;
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.form label span {
+  margin-bottom: 5px;
+}
+
+.form input {
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px #007bff;
+}
+
+.form button {
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.form button:hover {
+  background-color: #0056b3;
+}
+
+.container h2 {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
   }
-  
-  .form-container label {
-    display: block;
-    margin-bottom: 10px;
+
+  .form input,
+  .form button {
+    font-size: 14px;
   }
-  
-  .form-container input[type="text"],
-  .form-container input[type="email"],
-  .form-container input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 90%;
   }
-  
-  .form-container button[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
+
+  .form {
+    padding: 15px;
   }
-  
+
+  .form input,
+  .form button {
+    font-size: 12px;
+  }
+}

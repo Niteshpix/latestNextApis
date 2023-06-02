@@ -21,6 +21,7 @@
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
     "firebase": "^9.22.1",
+    "formik": "^2.4.1",
     "heroicons": "^2.0.18",
     "mongodb": "^5.5.0",
     "next": "13.4.4",
@@ -30,6 +31,7 @@
     "react-icons": "^4.9.0",
     "react-redux": "^8.0.5",
     "redux": "^4.2.1",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "yup": "^1.2.0"
   }
 }
