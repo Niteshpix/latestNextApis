@@ -84,7 +84,6 @@ const CodeEditor: React.FC = () => {
           cursor: pointer;
           font-size: 14px;
           height: 50px;
-
         }
 
         .output {

@@ -1,0 +1,33 @@
+.banner1 {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 50px;
+}
+
+.bannerimage {
+  width: 50%;
+  justify-content: center;
+  display: flex;
+}
+
+.bannertext {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profilegrid {
+  border: 1px solid red;
+  width: 100%;
+}
+.container{
+  max-width: 140rem;
+  margin:0 auto;
+  padding: 6rem 3rem;
+}
+.grid_two_section{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 60rem;
+}
